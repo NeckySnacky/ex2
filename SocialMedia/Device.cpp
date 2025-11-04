@@ -1,6 +1,7 @@
 #include "Device.h"
+#include <string>
 
-void Device::init(const unsigned int id,const DeviceType type,const std::string os) {
+void Device::init(const unsigned int id,const DeviceType type,const std::string os){
 	this->id = id;
 	this->type = type;
 	this->os = os;
@@ -13,7 +14,6 @@ int unsigned Device::getID() const {
 DeviceType Device::getType() const {
 	return this->type;
 }
-
 std::string Device::getOS() const {
 	return this->os;
 }
