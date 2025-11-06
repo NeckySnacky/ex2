@@ -9,7 +9,6 @@ private:
 	unsigned int age;
 	std::string username;
 	DevicesList deviceList;
-	DevicesList& referDeviceList = deviceList;
 	
 public:
 	void init(unsigned int id, std::string username, unsigned int age);
@@ -17,7 +16,7 @@ public:
 	int unsigned getID() const;
 	unsigned int getAge() const;
 	void clear();
-	DevicesList& getDevices() const;
+	DevicesList& getDevices();
 	void addDevice(Device newDevice);
 	bool checkIfDevicesAreOn() const;
 

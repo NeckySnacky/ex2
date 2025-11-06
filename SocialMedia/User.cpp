@@ -24,8 +24,9 @@ void User::clear() {
 	this->age = 0;
 }
 
-DevicesList& User::getDevices() const {
-	return this->referDeviceList;
+DevicesList& User::getDevices() {
+	DevicesList& referDeviceList = this->deviceList;
+	return referDeviceList;
 } 
 
 void User::addDevice(Device newDevice) {
