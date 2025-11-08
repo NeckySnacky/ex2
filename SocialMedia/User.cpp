@@ -5,6 +5,7 @@ void User::init(unsigned int id, std::string username, unsigned int age) {
 	this->id = id;
 	this->username = username;
 	this->age = age;
+	this->deviceList.init();
 }
 
 std::string User::getUserName() const {

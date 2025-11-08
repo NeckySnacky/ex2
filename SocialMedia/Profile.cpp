@@ -60,7 +60,6 @@ std::string Profile::getFriendsWithSameNameLength() const {
 			friends = friends + first->get_data().getUserName();
 
 		}
-		std::cout << "lap\n";
 		first = first->get_next();
 	}
 
