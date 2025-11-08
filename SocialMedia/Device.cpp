@@ -1,12 +1,14 @@
 #include "Device.h"
 #include <string>
 
+//initializes the class
 void Device::init(const unsigned int id,const DeviceType type,const std::string os){
 	this->id = id;
 	this->type = type;
 	this->os = os;
 }
 
+//gettersa
 int unsigned Device::getID() const {
 	return this->id;
 }
@@ -22,6 +24,7 @@ bool Device::isActive() const {
 	return this->active;
 }
 
+//setters
 void Device::activate() {
 	this->active = true;
 }

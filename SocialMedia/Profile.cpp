@@ -1,28 +1,21 @@
 #include "Profile.h"
 #include <iostream>
 
+//initializes the class
 void Profile::init(const User owner) {
 	this->owner = owner;
 }
+
+//clears the class
 void Profile::clear() {
 	this->owner.clear();
 	this->page.clearPage();
 	this->friendList.clear();
 }
+
+//getters
 User Profile::getOwner() const {
 	return this->owner;
-}
-
-void Profile::setStatus(const std::string new_status) {
-	this->page.setStatus(new_status);
-}
-
-void Profile::addPostToProfilePage(const std::string post) {
-	this->page.addLineToPosts(post);
-}
-
-void Profile::addFriend(const User friend_to_add) {
-	this->friendList.add(friend_to_add);
 }
 
 std::string Profile::getPage() const {
@@ -65,3 +58,18 @@ std::string Profile::getFriendsWithSameNameLength() const {
 
 	return friends;
 }
+
+//setters
+void Profile::setStatus(const std::string new_status) {
+	this->page.setStatus(new_status);
+}
+
+//adders (adds things to variables)
+void Profile::addPostToProfilePage(const std::string post) {
+	this->page.addLineToPosts(post);
+}
+
+void Profile::addFriend(const User friend_to_add) {
+	this->friendList.add(friend_to_add);
+}
+

@@ -3,6 +3,7 @@
 #include "User.h"
 #include "DeviceList.h"
 
+//initializes the class
 void SocialNetwork::init(const std::string networkName, const int minAge) {
 	this->minAge = minAge;
 	this->name = networkName;
@@ -10,6 +11,7 @@ void SocialNetwork::init(const std::string networkName, const int minAge) {
 	this->profiles->init();
 }
 
+//clears the class
 void SocialNetwork::clear() {
 	this->minAge = 0;
 	this->name = "";
@@ -17,6 +19,7 @@ void SocialNetwork::clear() {
 	delete this -> profiles;
 }
 
+//getters
 std::string SocialNetwork::getNetworkName() const {
 	return this->name;
 }
@@ -25,20 +28,15 @@ int SocialNetwork::getMinAge() const {
 	return this->minAge;
 }
 
-bool SocialNetwork::addProfile(const Profile profile_to_add) {
-	if (profile_to_add.getOwner().getAge() < this->minAge) {
-		return false;
-	}
 
-	this->profiles->add(profile_to_add);
-
-}
 
 std::string SocialNetwork::getWindowsDevices() const {
 	ProfileNode* firstProfile = this->profiles->get_first();
 	std::string devices = "";
 	DevicesList DeviceList = firstProfile->get_data().getOwner().getDevices();
 	DeviceNode* first = NULL;
+	
+	//goes through every profile inside it gets the devices and goes over every device
 	while (firstProfile) {
 		
 		DeviceList = firstProfile->get_data().getOwner().getDevices();
@@ -62,4 +60,15 @@ std::string SocialNetwork::getWindowsDevices() const {
 	}
 
 	return devices;
+}
+
+/*adds a profile to the profile list
+* returns true if the user was added (above the minimal age)*/
+bool SocialNetwork::addProfile(const Profile profile_to_add) {
+	if (profile_to_add.getOwner().getAge() < this->minAge) {
+		return false;
+	}
+
+	this->profiles->add(profile_to_add);
+
 }

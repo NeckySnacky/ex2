@@ -1,6 +1,7 @@
 #pragma once
 #include "User.h"
 
+//initializes
 void User::init(unsigned int id, std::string username, unsigned int age) {
 	this->id = id;
 	this->username = username;
@@ -8,6 +9,7 @@ void User::init(unsigned int id, std::string username, unsigned int age) {
 	this->deviceList.init();
 }
 
+//getters
 std::string User::getUserName() const {
 	return this->username;
 }
@@ -30,10 +32,6 @@ DevicesList& User::getDevices() {
 	return referDeviceList;
 } 
 
-void User::addDevice(Device newDevice) {
-	this->deviceList.add(newDevice);
-}
-
 bool User::checkIfDevicesAreOn() const {
 	DeviceNode* firstDevice = this->deviceList.get_first();
 
@@ -47,4 +45,7 @@ bool User::checkIfDevicesAreOn() const {
 	return true;
 }
 
-
+//adders (adds things to variables)
+void User::addDevice(Device newDevice) {
+	this->deviceList.add(newDevice);
+}
